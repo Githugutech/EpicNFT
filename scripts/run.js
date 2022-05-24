@@ -23,6 +23,17 @@ const main = async () => {
      * once it's deployed nftContract.address will basically give us the address of the deployed contract. 
      * This address is how we can actually find our contract on the blockchain. Right now on our local blockchain it's just us. 
      */
+
+        // Call the function.
+    let txn = await nftContract.makeAnEpicNFT()
+    // Wait for it to be mined.
+    await txn.wait()
+
+    // Mint another NFT for fun.
+    txn = await nftContract.makeAnEpicNFT()
+    // Wait for it to be mined.
+    await txn.wait()
+    
 };
 
 const runMain = async () => {
