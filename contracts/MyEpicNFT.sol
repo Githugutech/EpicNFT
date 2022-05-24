@@ -44,7 +44,7 @@ contract MyEpicNFT is ERC721URIStorage {
      */
 
     // Set the NFTs data.
-    _setTokenURI(newItemId, "blah");
+    _setTokenURI(newItemId, "https://jsonkeeper.com/b/GKHP");
     /**
     * _setTokenURI(newItemId, "blah") which will set the NFTs unique identifier along with the data associated w/ that unique identifier.
     * It's literally us setting the actual data that makes the NFT valuable.
