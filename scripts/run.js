@@ -1,4 +1,9 @@
 const main = async () => {
+    /**
+     * every time you run a terminal command that starts with npx hardhat you are getting this hre object built on the fly 
+     * using the hardhat.config.js specified in your code! 
+     * This means you will never have to actually do some sort of import into your files 
+     */
     const nftContractFactory = await hre.ethers.getContractFactory('MyEpicNFT');
     // This will actually compile our contract and generate the necessary files we need to work with our contract under the artifacts
     const nftContract = await nftContractFactory.deploy();
