@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+require("dotenv").config({path: ".env"});
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -16,6 +17,17 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
+
+/**
+ * Here we are basically configuring our hardhat.config.js to use our env variables securely 
+ * which are the process.env.ALCHEMY_API_KEY_URL & our process.env.RINKEBY_PRIVATE_KEY.
+ */
 module.exports = {
   solidity: "0.8.1",
+  networks: {
+    rinkeby: {
+      url: process.env.ALCHEMY_API_KEY_URL,
+      accounts: [process.env.RINKEBY_PRIVATE_KEY],
+    },
+  },
 };
