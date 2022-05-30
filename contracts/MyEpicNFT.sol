@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
+// DYNAMICALLY GENERATE FULL NFTS. ON-CHAIN.
 
 pragma solidity 0.8.1;
 
@@ -63,7 +64,7 @@ contract MyEpicNFT is ERC721URIStorage {
                     '{"name": "',
                     // We set the title of our NFT as the generated word.
                     combinedWord,
-                    '", "description": "A highly acclaimed collection of squares.", "image": "data:image/svg+xml;base64,',
+                    '", "description": "An NFT that inspires Creativity and more prooductivity.", "image": "data:image/svg+xml;base64,',
                     // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
                     Base64.encode(bytes(finalSvg)),
                     '"}'
