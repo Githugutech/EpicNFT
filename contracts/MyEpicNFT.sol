@@ -56,7 +56,6 @@ contract MyEpicNFT is ERC721URIStorage {
 
     string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, "</text></svg>"));
 
-    // Get all the JSON metadata in place and base64 encode it.
     string memory json = Base64.encode(
         bytes(
             string(
@@ -73,7 +72,6 @@ contract MyEpicNFT is ERC721URIStorage {
         )
     );
 
-    // Just like before, we prepend data:application/json;base64, to our data.
     string memory finalTokenUri = string(
         abi.encodePacked("data:application/json;base64,", json)
     );
@@ -91,3 +89,9 @@ contract MyEpicNFT is ERC721URIStorage {
     console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
   }
 }
+/**
+    * All we're doing is we're base64 encoding the JSON metadata! But — it's all on-chain. So, all that JSON will live on the contract itself.
+    * Get all the JSON metadata in place and base64 encode it.
+    * to see a quick preview of the image and the contents of the json without deploying it again and again on the opensea testnet.
+    * Just like before, we prepend data:application/json;base64, to our data.
+    */
