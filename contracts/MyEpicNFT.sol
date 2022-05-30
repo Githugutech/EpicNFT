@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 
-pragma solidity ^0.8.1;
+pragma solidity 0.8.0;
 
 // We need to import the helper functions from the contract that we copy/pasted.
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -63,7 +63,7 @@ contract MyEpicNFT is ERC721URIStorage {
                     '{"name": "',
                     // We set the title of our NFT as the generated word.
                     combinedWord,
-                    '", "description": "An NFT that inspires Creativity and more prooductivity.", "image": "data:image/svg+xml;base64,',
+                    '", "description": "A highly acclaimed collection of squares.", "image": "data:image/svg+xml;base64,',
                     // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
                     Base64.encode(bytes(finalSvg)),
                     '"}'
