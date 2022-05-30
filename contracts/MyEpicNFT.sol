@@ -47,3 +47,31 @@ contract MyEpicNFT is ERC721URIStorage {
     rand = rand % thirdWords.length;
     return thirdWords[rand];
   }
+
+  function random(string memory input) internal pure returns (uint256) {
+      return uint256(keccak256(abi.encodePacked(input)));
+  }
+
+  function makeAnEpicNFT() public {
+    uint256 newItemId = _tokenIds.current();
+
+    // We go and randomly grab one word from each of the three arrays.
+    string memory first = pickRandomFirstWord(newItemId);
+    string memory second = pickRandomSecondWord(newItemId);
+    string memory third = pickRandomThirdWord(newItemId);
+
+    // I concatenate it all together, and then close the <text> and <svg> tags.
+    string memory finalSvg = string(abi.encodePacked(baseSvg, first, second, third, "</text></svg>"));
+    console.log("\n--------------------");
+    console.log(finalSvg);
+    console.log("--------------------\n");
+
+    _safeMint(msg.sender, newItemId);
+  
+    // We'll be setting the tokenURI later!
+    _setTokenURI(newItemId, "blah");
+  
+    _tokenIds.increment();
+    console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+  }
+}
